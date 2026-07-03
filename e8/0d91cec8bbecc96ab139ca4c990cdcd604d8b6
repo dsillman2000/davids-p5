@@ -1,0 +1,14 @@
+README.md
+  h_4cc74772b10fd4 17-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "e80d91cec8bbecc96ab139ca4c990cdcd604d8b6",
+  "prompts": {},
+  "humans": {
+    "h_4cc74772b10fd4": {
+      "author": "dsillman2000 <dsillman2000@yahoo.com>"
+    }
+  }
+}
