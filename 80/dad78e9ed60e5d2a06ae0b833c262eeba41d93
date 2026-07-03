@@ -1,0 +1,21 @@
+packages/playground/index.html
+  s_056e0469cc0b99::t_eeb61eca5646c1 7-23,26
+packages/playground/src/index.ts
+  s_056e0469cc0b99::t_7bb444fc10f7d4 5-6,10-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "80dad78e9ed60e5d2a06ae0b833c262eeba41d93",
+  "prompts": {},
+  "sessions": {
+    "s_056e0469cc0b99": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0d6c683beffe8XYJ9pQY71uO0a",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "dsillman2000 <dsillman2000@yahoo.com>"
+    }
+  }
+}
