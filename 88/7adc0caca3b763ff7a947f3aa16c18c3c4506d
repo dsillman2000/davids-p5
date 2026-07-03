@@ -1,0 +1,27 @@
+packages/playground/src/index.ts
+  s_056e0469cc0b99::t_7fa725252ce740 26,28-34
+  h_4cc74772b10fd4 23
+packages/playground/src/snake.ts
+  s_056e0469cc0b99::t_30b48f093bebf8 71-111,113-120,123-125
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "887adc0caca3b763ff7a947f3aa16c18c3c4506d",
+  "prompts": {},
+  "humans": {
+    "h_4cc74772b10fd4": {
+      "author": "dsillman2000 <dsillman2000@yahoo.com>"
+    }
+  },
+  "sessions": {
+    "s_056e0469cc0b99": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0d6c683beffe8XYJ9pQY71uO0a",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "dsillman2000 <dsillman2000@yahoo.com>"
+    }
+  }
+}
