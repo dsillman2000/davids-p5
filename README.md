@@ -14,3 +14,7 @@ make playground
 | Package | Command |
 |---------|---------|
 | playground | `make playground` |
+
+## Authors
+
+David Sillman
