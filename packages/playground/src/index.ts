@@ -20,11 +20,18 @@ const sketch = (p: p5) => {
   };
 
   p.draw = () => {
-    p.background(255);
+    p.background(0);
 
     if (gridCols > 0 && gridRows > 0 && p.frameCount % TICK_INTERVAL === 0) {
+      const occupied = new Set<string>();
       for (const snake of snakes) {
-        tickSnake(snake, gridCols, gridRows);
+        for (const seg of snake.body) {
+          occupied.add(`${seg.x},${seg.y}`);
+        }
+      }
+
+      for (const snake of snakes) {
+        tickSnake(snake, gridCols, gridRows, occupied);
       }
     }
 

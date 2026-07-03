@@ -68,17 +68,61 @@ export function createSnake(gridCols: number, gridRows: number): Snake {
   };
 }
 
-export function tickSnake(snake: Snake, gridCols: number, gridRows: number): void {
-  const r = Math.random();
-  if (r < 0.6) {
-    // continue current direction
-  } else if (r < 0.8) {
-    snake.direction = TURN_LEFT[snake.direction];
-  } else {
-    snake.direction = TURN_RIGHT[snake.direction];
+export function tickSnake(
+  snake: Snake,
+  gridCols: number,
+  gridRows: number,
+  allOccupied: Set<string>
+): void {
+  const occupied = new Set(allOccupied);
+  occupied.delete(`${snake.headX},${snake.headY}`);
+
+  const tailWillVacate = snake.body.length >= snake.targetLength;
+  if (tailWillVacate) {
+    const tail = snake.body[0];
+    occupied.delete(`${tail.x},${tail.y}`);
   }
 
-  const vec = DIR_VECTORS[snake.direction];
+  const candidates: { dir: Direction; weight: number }[] = [
+    { dir: snake.direction, weight: 0.6 },
+    { dir: TURN_LEFT[snake.direction], weight: 0.2 },
+    { dir: TURN_RIGHT[snake.direction], weight: 0.2 },
+  ];
+
+  const safeCandidates = candidates.filter(({ dir }) => {
+    const vec = DIR_VECTORS[dir];
+    const nx = (snake.headX + vec.dx + gridCols) % gridCols;
+    const ny = (snake.headY + vec.dy + gridRows) % gridRows;
+    return !occupied.has(`${nx},${ny}`);
+  });
+
+  let chosenDir: Direction;
+
+  if (safeCandidates.length > 0) {
+    const totalWeight = safeCandidates.reduce((sum, c) => sum + c.weight, 0);
+    let r = Math.random() * totalWeight;
+    chosenDir = safeCandidates[0].dir;
+    for (const c of safeCandidates) {
+      r -= c.weight;
+      if (r <= 0) {
+        chosenDir = c.dir;
+        break;
+      }
+    }
+  } else {
+    let r = Math.random();
+    if (r < 0.6) {
+      chosenDir = snake.direction;
+    } else if (r < 0.8) {
+      chosenDir = TURN_LEFT[snake.direction];
+    } else {
+      chosenDir = TURN_RIGHT[snake.direction];
+    }
+  }
+
+  snake.direction = chosenDir;
+
+  const vec = DIR_VECTORS[chosenDir];
   snake.headX = (snake.headX + vec.dx + gridCols) % gridCols;
   snake.headY = (snake.headY + vec.dy + gridRows) % gridRows;
 
