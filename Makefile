@@ -7,6 +7,8 @@ install: ## Install all dependencies (root + workspaces)
 	npm install
 
 playground: ## Start the playground dev server
+	@LOCAL_IP=$$(ipconfig getifaddr en0 2>/dev/null || ipconfig getifaddr en1 2>/dev/null || echo "unknown"); \
+	echo "\n  Network: http://$$LOCAL_IP:5173\n"; \
 	npm run dev -w packages/playground
 
 build-playground: ## Build the playground for production
