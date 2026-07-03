@@ -1,0 +1,21 @@
+Makefile
+  s_49c1e47c65ab21::t_fd1ff342f02e53 10-11
+packages/playground/vite.config.ts
+  s_49c1e47c65ab21::t_5dae0b5a6a7b2d 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "ffea34e116edd718a73fd926c8e1265bde69cb99",
+  "prompts": {},
+  "sessions": {
+    "s_49c1e47c65ab21": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0d7cc8fc0ffea52CGnVDgBFDD0",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "dsillman2000 <dsillman2000@yahoo.com>"
+    }
+  }
+}
